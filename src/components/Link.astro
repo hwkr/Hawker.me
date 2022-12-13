@@ -2,6 +2,7 @@
 export interface Props {
   href: string;
   label: string;
+  icon: string;
 }
 
 const { href, icon, label } = Astro.props;
@@ -10,10 +11,13 @@ const { href, icon, label } = Astro.props;
 <a
   data-tooltip={label}
   target="_blank"
-  class="tooltip p-2 text-pink-500 rounded hover:bg-gray-900/10"
+  class="tooltip tooltip-bottom flex items-center p-2 text-indigo-500 hover:text-indigo-600 transition-all"
   href={href}
 >
-  <!-- <div class="w-6 h-6 fill-current" set:html={icon.svg}></div> -->
+  <div
+    class="w-5 h-5 p-px fill-current inline-flex items-center"
+    set:html={icon}
+  />
   <span class="sr-only">{label}</span>
 </a>
 
@@ -22,19 +26,17 @@ const { href, icon, label } = Astro.props;
   .tooltip {
     position: relative;
     &::after {
-      @apply bg-gray-900/90 rounded text-white text-sm z-10;
+      @apply bg-gray-700/90 rounded-sm text-white text-xs px-2 py-1 z-10 max-w-xs;
       bottom: 100%;
       content: attr(data-tooltip);
       display: block;
       left: 50%;
-      max-width: 32rem;
       opacity: 0;
       overflow: hidden;
-      padding: 0.4rem 0.8rem;
       pointer-events: none;
       position: absolute;
       text-overflow: ellipsis;
-      transform: translate(-50%, 1rem);
+      transform: translate(-50%, 0.625rem);
       transition: all 0.2s ease;
       white-space: nowrap;
     }
@@ -42,7 +44,7 @@ const { href, icon, label } = Astro.props;
     &:hover {
       &::after {
         opacity: 1;
-        transform: translate(-50%, -0.5rem);
+        transform: translate(-50%, -0.3125rem);
       }
     }
     &[disabled],
@@ -54,12 +56,12 @@ const { href, icon, label } = Astro.props;
       &::after {
         bottom: 50%;
         left: 100%;
-        transform: translate(-1rem, 50%);
+        transform: translate(-0.625rem, 50%);
       }
       &:focus,
       &:hover {
         &::after {
-          transform: translate(0.5rem, 50%);
+          transform: translate(0.3125rem, 50%);
         }
       }
     }
@@ -67,12 +69,12 @@ const { href, icon, label } = Astro.props;
       &::after {
         bottom: auto;
         top: 100%;
-        transform: translate(-50%, -1rem);
+        transform: translate(-50%, -0.625rem);
       }
       &:focus,
       &:hover {
         &::after {
-          transform: translate(-50%, 0.5rem);
+          transform: translate(-50%, 0.3125rem);
         }
       }
     }
@@ -81,12 +83,12 @@ const { href, icon, label } = Astro.props;
         bottom: 50%;
         left: auto;
         right: 100%;
-        transform: translate(1rem, 50%);
+        transform: translate(0.625rem, 50%);
       }
       &:focus,
       &:hover {
         &::after {
-          transform: translate(-0.5rem, 50%);
+          transform: translate(-0.3125rem, 50%);
         }
       }
     }

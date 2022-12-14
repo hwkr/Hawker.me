@@ -1,0 +1,68 @@
+.portfolio-project {
+  .project {
+    padding-top: @layout-padding;
+    padding-bottom: @layout-padding-xl;
+  }
+  .project-gallery {
+    .card {
+      margin-bottom: @layout-margin;
+    }
+    .divider {
+      margin: @layout-padding-xl 0;
+      &[data-content]::after {
+        color: @gray-color;
+      }
+    }
+  }
+  .project-info {
+    .card {
+      .card-header {
+        padding-bottom: @layout-padding;
+        border-bottom: @border-width solid @border-color;
+      }
+      .card-title {
+        font-size: 2.4rem;
+        margin-bottom: @layout-margin;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1+@size-md ) {
+    .navbar {
+      .navbar-brand {
+        position: fixed;
+      }
+    }
+    .project-info {
+      flex: 0 0 @sidebar-width;
+      .card {
+        position: fixed;
+        width: @sidebar-width - 2*@layout-padding;
+      }
+    }
+  }
+
+// Maximization
+
+@media screen and (min-width: 1+@size-md ) {
+
+    .project-gallery {
+      .card:hover {
+        cursor: zoom-in;
+      }
+    }
+
+    &.gallery-maximized {
+
+      .project-gallery {
+        .card:hover {
+          cursor: zoom-out;
+        }
+      }
+
+      .project-info {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.home {
+
+  .splash {
+    background-position: 110% 100%;
+    background-repeat: no-repeat;
+    background-size: 100vh;
+
+    min-height: 100vh;
+
+    .hero {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      min-height: 90vh;
+
+      h1 {
+        font-size: 8rem;
+        line-height: 0.5;
+        padding: 0 @layout-padding;
+        margin-bottom: @layout-margin*2;
+
+        big {
+          color: @primary-color;
+          font-weight: 800;
+          line-height: 1;
+          position: relative;
+          top: 1.2rem;
+          left: -1%;
+        }
+
+        small {
+          color: @body-font-color;
+          font-weight: bold;
+          font-size: 40%;
+        }
+      }
+      .social {
+         margin: 0;
+      }
+
+      @media screen and (max-width: @size-md ) {
+        min-height: 60vh;
+        h1 {
+          font-size: 6rem;
+        }
+      }
+    }
+
+  }
+
+  .btn-action {
+    position: fixed;
+    right: 6vw;
+    bottom: 6vh;
+    .shadow-variant(.4rem);
+  }
+}

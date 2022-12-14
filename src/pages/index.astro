@@ -44,31 +44,31 @@ const links = [
 ];
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <div class="flex items-center h-screen max-w-screen-sm px-4 mx-auto w-full">
-      <div class="flex flex-col gap-4">
-        <h1 class="flex flex-col gap-2.5 px-2">
-          <big
-            class="text-8xl text-indigo-500 font-extrabold relative left-[-1%]"
-          >
+<Layout title="Welcome to Astro." class="home">
+  <!-- <button
+    className="btn btn-primary btn-action btn-lg tooltip tooltip-left circle"
+    data-tooltip="Talk to me right meow"
+    onClick={this.openChat}
+    type="button"
+  >
+    <Icon name="social-facebook-messenger" size={1.5} />
+  </button> -->
+  <main class="splash">
+    <div class="container grid-720 hero">
+      <div>
+        <h1>
+          <big>
             Brynn
             <br />
             Hawker
           </big>
-          <small class="text-[2rem] leading-none font-bold text-gray-500"
-            >Designer &times; Developer</small
-          >
+          <br />
+          <small>Designer &times; Developer</small>
         </h1>
-        <ul class="flex gap-0.5">
-          {
-            links.map(({ href, label, icon }) => (
-              <li>
-                <Link href={href} label={label} icon={icon} />
-              </li>
-            ))
-          }
-        </ul>
+        <!-- <SocialLinks
+          links={socialLinks}
+          linkClass={["btn", "btn-link", "btn-lg", "tooltip-bottom"]}
+        /> -->
       </div>
     </div>
   </main>

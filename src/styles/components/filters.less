@@ -1,0 +1,38 @@
+// Filters
+// The number of filter options
+@filter-number: 8;
+
+.filter {
+  .filter-nav {
+    margin: @layout-margin auto;
+    display: table;
+
+    .chip {
+      &:not(:first-of-type) {
+        margin-left: @layout-margin;
+      }
+    }
+  }
+
+  .filter-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .filter-tag {
+    each(range(0, @filter-number), {
+      &#tag-@{value}:checked ~ .filter-nav .btn[for="tag-@{value}"] {
+        background: @primary-color-dark;
+        border-color: darken(@primary-color-dark, 5%);
+        color: @light-color;
+        text-decoration: none;
+      }
+    })
+
+    each(range(1, @filter-number), {
+      &#tag-@{value}:checked ~ .filter-body .filter-item:not([data-tag~="tag-@{value}"]) {
+        display: none;
+      }
+    })
+  }
+}

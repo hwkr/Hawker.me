@@ -1,0 +1,69 @@
+// Cards
+.card {
+  background: @bg-color-light;
+  border: @border-width solid @border-color;
+  border-radius: @border-radius;
+  display: block;
+
+  &.card-clear {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  &.card-link {
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+      border-color: lighten(@primary-color, 20%);
+      background: lighten(@primary-color, 30%);
+
+      .chip {
+        background: @light-color;
+      }
+    }
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding: @layout-padding;
+    padding-bottom: 0;
+
+    &:last-child {
+      padding-bottom: @layout-padding;
+    }
+  }
+
+  .column .card-image {
+    padding: 0 @layout-padding;
+  }
+
+  .card-image {
+    padding-top: @layout-padding;
+
+    &:first-child {
+      padding-top: 0;
+
+      img {
+        border-top-left-radius: @border-radius;
+        border-top-right-radius: @border-radius;
+      }
+    }
+
+    &:last-child {
+      img {
+        border-bottom-left-radius: @border-radius;
+        border-bottom-right-radius: @border-radius;
+      }
+    }
+  }
+
+  .card-title {
+    font-size: 2rem;
+  }
+
+  .card-subtitle {
+    color: lighten(@body-font-color, 40%);
+    font-size: @font-size-sm;
+  }
+}
